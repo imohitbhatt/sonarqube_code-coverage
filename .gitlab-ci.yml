@@ -1,0 +1,14 @@
+stages:
+    - test
+
+Test:
+    stage: test
+    image: python
+    script:
+        sonar-scanner \
+            -Dsonar.host.url=https://10.0.0.125:9000
+            -Dsonar.login=3fc6feb6cc8c13f477d62cfb7aab94d7c53461ab
+            -Dsonar.python.coverage.reportPath=./coverage.xml
+            -Dsonar.python.coverage.reportPaths=./coverage.xml
+    only:
+        - test
